@@ -18,7 +18,7 @@
 
     <ul>
         @foreach ($games as $game)
-            <li><b>{{ $game->winner() }}</b> beat {{ $game->loser() }} - {{ $game->winnerScore() }} to {{ $game->loserScore() }}</li>
+            <li>{{ $game->created_at->diffForHumans() }} - <b>{{ $game->winner() }}</b> beat {{ $game->loser() }} - {{ $game->winnerScore() }} to {{ $game->loserScore() }}</li>
         @endforeach
     </ul>        
 
