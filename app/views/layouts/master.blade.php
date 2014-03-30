@@ -28,7 +28,8 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/match/create">Add Result</a></li>
         </ul>
         <h3 class="text-muted">Meraki Foosball</h3>
       </div>
@@ -36,7 +37,7 @@
       @yield('body')
 
       <div class="footer">
-        <p>&copy; Company 2014</p>
+        <p>&copy; Meraki / Jonas Bergler 2014</p>
       </div>
 
     </div> <!-- /container -->
