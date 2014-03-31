@@ -19,7 +19,9 @@ class UserController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$user = new User;
+		return View::make('user.create')
+				   ->with('user', $user);
 	}
 
 	/**
@@ -29,7 +31,27 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(
+			Input::all(),
+			array(
+			    'name' => 'required|unique:users,name',
+			    'email' => 'required|unique:users,email'
+			)
+		);
+
+		if($validator->fails())
+		{
+			return Redirect::route('user.create')
+						   ->withInput()
+						   ->withErrors($validator);
+		}
+
+		User::create(array(
+			"name" => Input::get('name'),
+			"email" => Input::get('email')
+		));
+
+		return Redirect::route("match.create");
 	}
 
 	/**

@@ -13,3 +13,4 @@
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 Route::resource('match', 'MatchController');
+Route::resource('user', 'UserController');
