@@ -37,7 +37,7 @@
       @yield('body')
 
       <div class="footer">
-        <p>&copy; Meraki / Jonas Bergler 2014</p>
+	<p><small>Built for Meraki by <a href="mailto:jonas@meraki.com">Jonas</a></small></p>
       </div>
 
     </div> <!-- /container -->

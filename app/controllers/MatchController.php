@@ -133,7 +133,7 @@ class MatchController extends \BaseController {
 			$game->player2->rating_doubles = $game->player2->rating_doubles + $rating_team2_diff;
 			$game->player2->save();
 			$game->player4->rating_doubles = $game->player4->rating_doubles + $rating_team2_diff;
-			$game->player2->save();
+			$game->player4->save();
 		}
 		else
 		{
