@@ -102,8 +102,8 @@ class Rating
 
     protected function _getExpectedScores($ratingA,$ratingB)
     {
-        $expectedScoreA = 1 / ( 1 + ( pow( 10 , ( $ratingB - $ratingA ) / self::FFACTOR ) ) );
-        $expectedScoreB = 1 / ( 1 + ( pow( 10 , ( $ratingA - $ratingB ) / self::FFACTOR ) ) );
+        $expectedScoreA = 1 / ( 1 + ( pow(10, ($ratingB - $ratingA) / self::FFACTOR ) ) );
+        $expectedScoreB = 1 / ( 1 + ( pow(10, ($ratingA - $ratingB) / self::FFACTOR ) ) );
 
         return array (
             'a' => $expectedScoreA,
@@ -113,8 +113,8 @@ class Rating
 
     protected function _getNewRatings($ratingA,$ratingB,$expectedA,$expectedB,$scoreA,$scoreB)
     {
-        $newRatingA = $ratingA + ( self::KFACTOR * ( $scoreA - $expectedA ) );
-        $newRatingB = $ratingB + ( self::KFACTOR * ( $scoreB - $expectedB ) );
+        $newRatingA = $ratingA + ( self::KFACTOR * ( (($scoreA > $scoreB) ? 1 : 0) - $expectedA ) );
+        $newRatingB = $ratingB + ( self::KFACTOR * ( (($scoreB > $scoreA) ? 1 : 0) - $expectedB ) );
 
         return array (
             'a' => $newRatingA,
