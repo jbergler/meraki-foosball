@@ -110,14 +110,18 @@ class RecalculateScoresCommand extends Command {
 
 				// Update Team 1
 				$game->player1->rating_doubles = $game->player1->rating_doubles + $rating_team1_diff;
+				$game->player1->count_doubles++;
 				$game->player1->save();
 				$game->player3->rating_doubles = $game->player3->rating_doubles + $rating_team1_diff;
+				$game->player3->count_doubles++;
 				$game->player3->save();
 
 				// Update Team 2
 				$game->player2->rating_doubles = $game->player2->rating_doubles + $rating_team2_diff;
+				$game->player2->count_doubles++;
 				$game->player2->save();
 				$game->player4->rating_doubles = $game->player4->rating_doubles + $rating_team2_diff;
+				$game->player4->count_doubles++;
 				$game->player4->save();
 			}
 			else
@@ -148,8 +152,10 @@ class RecalculateScoresCommand extends Command {
 
 				// Update ratings
 				$game->player1->rating_singles = $newRatings['a'];
+				$game->player1->count_singles++;
 				$game->player1->save();
 				$game->player2->rating_singles = $newRatings['b'];
+				$game->player2->count_singles++;
 				$game->player2->save();
 			}
 
